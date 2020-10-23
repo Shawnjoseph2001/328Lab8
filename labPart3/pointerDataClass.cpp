@@ -7,8 +7,9 @@ class pointerDataClass
 public:
     //Constructor to create an array of the size specified by the parameter size.
     explicit pointerDataClass(int size);
+    pointerDataClass(pointerDataClass const &p);
     //Destructor to deallocate the memory space occupied by the array p
-    ~pointerDataClass();
+    ~pointerDataClass() = default;
     //the function insertAt inserts num into array p at the position specified by
     //index
     void insertAt(int index, int num);
@@ -16,8 +17,7 @@ public:
     void displayData();
 };
 
-pointerDataClass::~pointerDataClass() {
-}
+
 
 void pointerDataClass::insertAt(int index, int num) {
     if(length < maxSize && index < length) {
@@ -45,6 +45,15 @@ pointerDataClass::pointerDataClass(int size) {
     p = new int[size];
     for(int i = 0; i < size; i++) {
         p[i] = 0;
+    }
+}
+
+pointerDataClass::pointerDataClass(const pointerDataClass &pclass) {
+    maxSize = pclass.maxSize;
+    length = pclass.length;
+    p = new int[length];
+    for(int i = 0; i < length; i++) {
+        p[i] = pclass.p[i];
     }
 }
 

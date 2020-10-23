@@ -28,7 +28,7 @@ void pointerDataClass::insertAt(int index, int num) {
         length++;
     }
     else if(length < maxSize) {
-        length = index;
+        length = index + 1;
         p[index] = num;
     }
 }

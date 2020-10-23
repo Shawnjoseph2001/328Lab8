@@ -4,12 +4,14 @@ using namespace std;
 class alpha
 {
 private:
-int data{};
+int data;
 public:
 explicit alpha(int num) {
 data = num;
 }
-alpha()= default;
+alpha(){
+    data = 0;
+};
 void display() const {
     cout << data << endl;
 }

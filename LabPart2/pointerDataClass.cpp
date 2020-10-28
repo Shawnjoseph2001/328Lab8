@@ -33,9 +33,12 @@ void pointerDataClass::insertAt(int index, int num) {
 }
 
 void pointerDataClass::displayData() {
-    for(int i = 0; i < length; i++) {
-        cout << i << ": " << p[i] << endl;
+    for(int i = 0; i < maxSize; i++) {
+        if(p[i] != 0) {
+            cout << i << ": " << p[i] << ", ";
+        }
     }
+    cout << endl;
 }
 
 pointerDataClass::pointerDataClass(int size) {
